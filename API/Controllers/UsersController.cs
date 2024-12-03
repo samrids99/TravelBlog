@@ -31,5 +31,4 @@ namespace API.Controllers
             return user;
         }
     }
-    // checking git - will delete later
 }
