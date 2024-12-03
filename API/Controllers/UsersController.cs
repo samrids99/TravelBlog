@@ -23,12 +23,13 @@ namespace API.Controllers
         public async Task<ActionResult<AppUser>> GetUser(int id) // grabs argument from the dynamic route
         {
             if (context.Users == null) return NotFound("User not found");
-            
+
             var user = await context.Users.FindAsync(id);
 
             if (user == null) return NotFound("User not found");
 
-            return user;     
+            return user;
         }
     }
+    // checking git - will delete later
 }
