@@ -18,7 +18,8 @@ namespace API.Controllers
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken"); // have to await as it's an async method
 
             using var hmac = new HMACSHA512(); // using means it will dispose of the object after it's done
-
+            
+            // create a new user
             var user = new AppUser
             {
                 Username = registerDto.Username.ToLower(), // here we store all usernames in lowercase
@@ -37,10 +38,13 @@ namespace API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
         {
+            // get user from the database
             var user = await context.Users!.FirstOrDefaultAsync(x => x.Username == loginDto.Username.ToLower());
-
+            
+            // if user doesn't exist
             if (user == null) return Unauthorized("Username doesn't exist");
-
+            
+            // get password and compare it with the one in the database
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
