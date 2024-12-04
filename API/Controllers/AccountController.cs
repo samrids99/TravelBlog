@@ -3,16 +3,17 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class AccountController(DataContext context) : BaseApiController
+    public class AccountController(DataContext context, ITokenService tokenService) : BaseApiController
     {
         [HttpPost("register")] // api/account/register
-        public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto) // we want to receive the params as objects
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto) // we want to receive the params as objects
         {
 
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken"); // have to await as it's an async method
@@ -31,12 +32,16 @@ namespace API.Controllers
             context.Users!.Add(user);
             await context.SaveChangesAsync();
 
-            return user;
+            return new UserDto
+            {
+                Username = user.Username,
+                Token = tokenService.CreateToken(user)
+            };
 
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             // get user from the database
             var user = await context.Users!.FirstOrDefaultAsync(x => x.Username == loginDto.Username.ToLower());
@@ -54,7 +59,11 @@ namespace API.Controllers
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
             }
 
-            return user;
+            return new UserDto
+            {
+                Username = user.Username,
+                Token = tokenService.CreateToken(user)
+            };
         }
 
         private async Task<bool> UserExists(string username)
