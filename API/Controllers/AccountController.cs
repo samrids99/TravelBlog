@@ -1,23 +1,28 @@
 using System.Security.Cryptography;
 using System.Text;
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     public class AccountController(DataContext context) : BaseApiController
     {
         [HttpPost("register")] // api/account/register
-        public async Task<ActionResult<AppUser>> Register(string username, string password) // we want to receive the params as objects
+        public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto) // we want to receive the params as objects
         {
+
+            if (await UserExists(registerDto.Username)) return BadRequest("Username is taken"); // have to await as it's an async method
+
             using var hmac = new HMACSHA512(); // using means it will dispose of the object after it's done
 
             var user = new AppUser
             {
-                Username = username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)), // as hash is a bytes array
+                Username = registerDto.Username.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)), // as hash is a bytes array
                 PasswordSalt = hmac.Key
             };
 
@@ -27,6 +32,12 @@ namespace API.Controllers
 
             return user;
 
+        }
+
+        private async Task<bool> UserExists(string username)
+        {
+            if (context.Users == null) return false;
+            return await context.Users.AnyAsync(x => x.Username.ToLower() == username.ToLower()); // don't use .Equals as entity framework doesn't support it
         }
     }
 }
