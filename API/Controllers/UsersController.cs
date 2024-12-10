@@ -9,7 +9,6 @@ namespace API.Controllers
 {
     public class UsersController(DataContext context) : BaseApiController
     {
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() // action result means we can return http style responses
         {
