@@ -1,3 +1,11 @@
-<app-nav></app-nav>
-<app-hero></app-hero>
-  
+<div class="hero-background">
+  <app-nav class="z-2" [isMenuOpen]="isMenuOpen"></app-nav>
+</div>
+<div class="z-1 decoration-body position-relative overflow-hidden">
+  <img
+    src="/decoration-left.svg"
+    alt="decorative banner"
+    class="decoration-left position-absolute"
+  />
+  <app-heading></app-heading>
+</div>

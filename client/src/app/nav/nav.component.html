@@ -1,45 +1,14 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        Peaks & Pathways
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#blogs">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#destinations">Destinations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#wild">Wild</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#urban">Urban</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-        </ul>
-        <form #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" autocomplete="off">
-            <input name="username" [(ngModel)]="model.username" type="text" class="form-control me-2" placeholder="username">
-            <input name="password" [(ngModel)]="model.password" type="password" class="form-control me-2" placeholder="password">
-            <button class="btn btn-outline-light" type="submit">Login</button>
-        </form>
+<header
+  class="header position-relative"
+  [ngStyle]="{ display: isMenuOpen ? 'none' : 'block' }"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 pt-8">
+        <h1 class="xl-text mt-5 text-light text-center heading">
+          COME WITH US TO SEE THE WORLD
+        </h1>
       </div>
     </div>
-  </nav>
+  </div>
+</header>

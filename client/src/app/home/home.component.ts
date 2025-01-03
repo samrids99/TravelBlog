@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { NavComponent } from "../nav/nav.component";
-import { HeroComponent } from "../hero/hero.component";
+import { Component, Input } from '@angular/core';
+import { NavComponent } from '../nav/nav.component';
+import { HeadingComponent } from '../heading/heading.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavComponent, HeroComponent],
+  imports: [NavComponent, HeadingComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-
+  @Input() isMenuOpen!: boolean;
 }

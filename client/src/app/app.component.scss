@@ -1,0 +1,38 @@
+.site-container {
+    position: relative;
+}
+
+.navbar {
+    transition: all 0.3s ease-in-out;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  
+  .sticky-top {
+    background: var(--bs-dark);
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    // position: fixed;
+  }
+
+  .nav-logo {
+    height: 120px;
+    width: 120px;
+  }
+
+  .nav-link {
+    color: white;
+  }
+
+  .nav-link:hover {
+    color: var(--bs-light);
+  }
+
+  .navbar-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; 
+    background: transparent; 
+  }

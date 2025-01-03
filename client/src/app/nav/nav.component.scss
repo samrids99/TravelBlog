@@ -1,7 +1,43 @@
 .navbar {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
   }
   
-  .navbar-sticky {
-    opacity: 0.8;
+  .sticky-top {
+    background: var(--bs-dark);
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-logo {
+    height: 120px;
+    width: 120px;
+  }
+
+  .nav-link {
+    color: white;
+  }
+
+  .nav-link:hover {
+    color: var(--bs-light);
+  }
+
+  .xl-text {
+    font-size: 65px;
+    
+  }
+
+
+  
+ 
+  
+.hr-heading {
+    display: inline-block;
+    width: 3.5rem;
+    height: 0.125rem;
+    margin-top: 0.625rem;
+    border: none;
+    background-color: var(--bs-primary);
+    opacity: 1;
   }

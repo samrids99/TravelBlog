@@ -51,13 +51,22 @@ $input-border-radius: $input-radius;
 $input-border-radius-sm: $input-radius;
 $input-border-radius-lg: $input-radius;
 
+.heading {
+  font-family: "Hubot Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
 
-
-
-
-
-
-
-
+.body {
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 
 @import '../node_modules/bootstrap/scss/bootstrap';
