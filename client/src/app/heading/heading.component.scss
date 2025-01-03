@@ -37,6 +37,28 @@
 .counter {
     font-size: 6rem;
 }
+
+.top-cards .card {
+    height: 400px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.top-cards .card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.card img {
+    height: 80%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    object-fit: cover;
+}
+
+
+
 @media(max-width: 1115px) {
     #stats {
         background: var(--bs-light);
@@ -56,5 +78,18 @@
 
     .counter {
         font-size: 4rem;
+    }
+
+    .centralise {
+        display: flex;
+        justify-content: center;
+    }
+
+    .top-cards .card {
+        width: 350px;
+    }
+
+    .cards-heading {
+        margin: 0 3rem;
     }
 }
