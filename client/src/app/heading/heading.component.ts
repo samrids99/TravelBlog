@@ -6,10 +6,12 @@ import {
   QueryList,
 } from '@angular/core';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 @Component({
   selector: 'app-heading',
   standalone: true,
-  imports: [],
+  imports: [CarouselModule],
   templateUrl: './heading.component.html',
   styleUrl: './heading.component.scss',
 })
