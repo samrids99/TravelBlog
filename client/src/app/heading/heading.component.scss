@@ -10,15 +10,21 @@
 }
 
 .carousel {
-  width: 100% !important;
+  width: 100%;
+  max-width: 1316px;
+  min-width: 350px;
   height: 100% !important;
   overflow: hidden;
-  display: flex;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-img {
   width: 100%;
-  object-fit: contain;
+  max-height: 702px;
+  max-width: 1320px;
+  min-height: 320px;
+  
+  object-fit: cover;
   overflow: hidden;
 }
 
@@ -30,7 +36,9 @@
 
 .carousel-container {
   overflow: hidden;
-  height: 85vh;
+  height: 55vh;
+  display: flex;
+    justify-content: center !important;
 }
 
 
@@ -70,6 +78,7 @@
     }
 
 }
+
 
 .counter {
     font-size: 6rem;
@@ -129,4 +138,17 @@
     .cards-heading {
         margin: 0 3rem;
     }
+
+    .carousel {
+        width: 100%;
+        max-width: 1316px;
+        min-width: 420px;
+        height: 100% !important;
+    }
+      
+    .carousel-container {
+        height: 415px;
+    }
+
+
 }
