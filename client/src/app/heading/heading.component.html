@@ -147,7 +147,56 @@
   </div>
 </section>
 
-<div class="bg-light rounded-5 position-relative carousel-container m-5 p-5">
+<div
+  class="container carousel-container rounded-5 d-flex justify-content-center my-5"
+>
+  <div class="row">
+    <div class="col-12 w-100 h-100">
+      <carousel class="w-100 h-100" [noPause]="false">
+        <slide>
+          <img
+            class="rounded-5 carousel-img w-100 h-100"
+            src="/lisboa.jpeg"
+            alt="First slide"
+            style="display: block; width: 100%"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img
+            class="rounded-5 carousel-img w-100 h-100"
+            src="/viru.jpeg"
+            alt="Second slide"
+            style="display: block; width: 100%"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </slide>
+        <slide>
+          <img
+            class="rounded-5 carousel-img w-100 h-100"
+            src="/asia.jpeg"
+            alt="Third slide"
+            style="display: block; width: 100%"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="bg-light rounded-5 position-relative carousel-container m-5 p-5">
   <img
     src="/decoration-right.svg"
     alt="decorative banner"
@@ -180,4 +229,4 @@
       </div>
     </slide>
   </carousel>
-</div>
+</div> -->
